@@ -7,6 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Laravel Practice</title>
+    @yield('styles')
 </head>
 <body>
     <header>
@@ -24,7 +25,7 @@
                             <a class="nav-link {{ request()->route()->named('index') ? 'active' : '' }}" href="{{ route('index') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Calender</a>
+                            <a class="nav-link {{ request()->route()->named('calendar') ? 'active' : '' }}" href="{{ route('calendar') }}">Calendar</a>
                         </li>
                     </ul>
                 </div>
@@ -32,5 +33,7 @@
         </nav>
     </header>
     @yield('content')
+
+    @yield('scripts')
 </body>
 </html>
