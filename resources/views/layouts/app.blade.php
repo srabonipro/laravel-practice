@@ -27,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link {{ request()->route()->named('calendar') ? 'active' : '' }}" href="{{ route('calendar') }}">Calendar</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->route()->named('category') ? 'active' : '' }}" href="{{ route('category') }}">Category</a>
+                        </li>
                     </ul>
                 </div>
             </div>
