@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 
 class TrashController extends Controller
@@ -26,6 +27,24 @@ class TrashController extends Controller
             }) // returns the users of this month
 
             ->paginate();
+
+        return $users;
+    }
+
+
+    public function testOne()
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403');
+
+        /**
+         * This query will return users with roles
+         * The users must have products
+         * And the products' status will be accepted
+         */
+        $users = User::with(['roles'])
+            ->whereHas('products', function ($q) {
+                $q->where('status', 'accepted');
+            })->get();
 
         return $users;
     }
