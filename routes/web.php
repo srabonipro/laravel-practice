@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TrashController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,8 @@ Route::get('/category', function () {
     $categories = Category::all();
     return view('category', compact('categories'));
 })->name('category');
+
+
+Route::get('trash/{period}', [TrashController::class, 'index'])
+    ->name('trash.index')
+    ->where('period', 'month|week');
