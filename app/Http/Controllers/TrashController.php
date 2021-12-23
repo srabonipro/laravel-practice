@@ -48,4 +48,9 @@ class TrashController extends Controller
 
         return $users;
     }
+
+    public function testTwo(User $id)
+    {
+        optional($id)->update();
+    }
 }
