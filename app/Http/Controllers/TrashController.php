@@ -53,4 +53,19 @@ class TrashController extends Controller
     {
         optional($id)->update();
     }
+
+    public function testThree($id)
+    {
+        $product = Product::find($id);
+        if ($product) {
+            $product->update($productDataArray);
+        }
+
+        // Shorter way
+        $product = Product::findOrFail($id);      // Shows 404 page if not found
+        $product->update($productDataArray);
+
+        // Even shorter
+        optional(Product::find($id))->update($productDataArray);
+    }
 }
