@@ -22,3 +22,8 @@ Route::get('/category', function () {
 Route::get('trash/{period}', [TrashController::class, 'index'])
     ->name('trash.index')
     ->where('period', 'month|week');
+
+
+Route::get('charts', function () {
+    return view('charts');
+});
