@@ -13,7 +13,7 @@ Route::get('/calendar', function () {
 })->name('calendar');
 
 Route::get('/category', function () {
-    $categories = Category::root()->get();
+    $categories = Category::with('children.children.children')->root()->get();
     return view('category', compact('categories'));
 })->name('category');
 
