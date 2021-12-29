@@ -26,4 +26,4 @@ Route::get('trash/{period}', [TrashController::class, 'index'])
 
 Route::get('charts', function () {
     return view('charts');
-});
+})->name('chart');

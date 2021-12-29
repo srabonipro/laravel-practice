@@ -30,6 +30,9 @@
                         <li class="nav-item">
                             <a class="nav-link {{ request()->route()->named('category') ? 'active' : '' }}" href="{{ route('category') }}">Category</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->route()->named('chart') ? 'active' : '' }}" href="{{ route('chart') }}">Chart</a>
+                        </li>
                     </ul>
                 </div>
             </div>
